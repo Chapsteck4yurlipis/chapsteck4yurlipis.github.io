@@ -1,0 +1,91 @@
+About: A basic hurricane simulator made for the Hypothetical Hurricanes Wiki. Soon to be more advanced.
+
+v20181004a:
+    * Made steering completely drunk for the moment (will be fixed)
+    * Changed canvas dimensions to 960x540 as to fit a 16:9 aspect ratio
+    - Temporarily removed subtropical storms
+        > System behavior hasn't yet changed, but they're just classified as extratropical, thus expect E5s
+v20180810a:
+    + Added clickable UI elements/buttons, opening the door for more possibilities in this sim along with better mobile compatibility
+    + Added a pause button, which works alongside the existing "space"
+        > The indicator text also functions as an extension of the pause button when a storm isn't selected
+    + Added a date navigator UI, which can be accessed by clicking the time in the upper left
+        > Using the arrow buttons, you can jump through analysis by the year, month, day, or advisory increment (6 hours)
+        > The arrow keys still work alongside this new UI
+    + Added rudimentary seasonal activity; storms should now be more common and stronger in September than in January
+    * Some tweaks to steering
+v20180731a:
+    + Added environmental steering; may need some work
+    * Some adjustments to storm strength algorithm
+    * Spawning frequency and ranges adjusted
+v20180729a:
+    + Storms now keep track of their peak intensity (by pressure), including all associated data at the point of peak intensity
+    + Added ACE
+    * Inactive selected storms now display their full name as of peak intensity, plus ACE
+    * You can now hold down the arrow keys in analysis to quickly move backwards and forwards
+v20180728b:
+    + Added 5 different simulation speed levels: Full-Speed, Half-Speed, 1/3 Speed, 1/4 Speed, and 1/5 Speed
+        > Press "[" to slow the simulation down and "]" to speed the simulation up
+    + Added indicator in the upper-right (when a storm is not selected) for simulation speed and if the sim is paused
+v20180728a:
+    + Added subtropical and extratropical storms
+        > Spawn extratropical systems with "x"; subtropical storms cannot yet be spawned
+    + Added pressure; wind speed is now based on pressure
+    + Added a temporary environmental gradient for determining extratropical vs. subtropical vs. tropical
+    + Added clicking storms to select them; selected storms appear with a white outline and display info in the upper-right
+    + Added all 6 name lists plus Greek alphabet, which should rotate appropriately through a 6-year cycle
+    * Big refactor to make more-efficient classes for future saving and loading basins
+    * "Lows" are now specifically "tropical waves" as opposed to extratropical lows
+    * Storms now spawn in one of two locations based on if they're extratropical or a tropical wave
+    * Strengthening/weakening algorithm changed significantly for handling new extratropical and subtropical systems
+v20180721a:
+    + Added analysis, allowing you to see history of the sim by pausing and pressing the left and right arrow keys to move forward and backward through time
+        > Unpause (or press "A" for single-tick advance) to return the time to the present without spamming the right arrow key
+    + Added some code for "seasons" (quite unfinished)
+    + Added lows, which are anything below 20 mph, which was where storms died before
+        > Storms now die when they drop below 0 mph
+        > Hold "L" and click to spawn a low
+    * Tracks now disappear as soon as a storm dies, but it can still be seen in analysis
+    * Storm icons are now rendered with a method of the StormSystem class to make analysis work more easily
+v20180719a:
+    * Fixed mouse events blocking default browser actions when cursor is outside the canvas, which made it impossible to access the changelog using the link (sorry)
+    * Fixed first segment of tracks not rendering immediately
+v20180718b:
+    * Storms are for now named with a continuously looping 2022 Atlantic hurricane name list (Will be changed)
+    * Tracks are no longer rendered every frame, but only when needed, making the sim run faster
+    - Removed tracks dissappearing when the framerate drops below 25 fps, as it's no longer needed thanks to the improvement above
+v20180718a:
+    + Added names:
+        > Depressions recieve a number with the suffix "H" for "Hypothetical"
+        > Named storms are all named "Unnamed", as this is incomplete
+    + Added code for environment factors such as "shear" and "SSTAnomaly", but are not in use yet
+    * Changed each simulation tick from 30 minutes to an hour:
+        > Storms now move twice as fast as seen by the viewer, although they move at the same speed in simulation time
+        > Strengthening/weakening code is still the same per-tick, so behavior has changed somewhat
+    * The time in the upper left uses a slightly different format now
+    * Fixed keyboard events blocking default browser actions like "F5" for reload or "F12" for javascript console, except in cases involving keys used for the simulation ("space" doesn't scroll the page down)
+v20180713a:
+    + Added pausing using "space"
+    + Added a date counter; currently serves no purpose
+    + Added spawning using the keyboard and mouse:
+        > Hold "D" and click to spawn a tropical depression
+        > Hold "S" and click to spawn a tropical storm
+        > Hold "1" and click to spawn a category 1 hurricane
+        > So on for keys "2" through "5"
+    + Added stepping one frame (30 sim-minutes) at a time while paused using "A"
+    + Added a method to display storms' windspeeds underneath them, enabled using "W"
+    * Changed land rendering to better show height
+    * Fixed(?) issues involving higher-definition display devices
+    * Tracks of dead storms now disappear whenever the framerate drops below 25 fps, not just after their timeout
+    * Changed canvas dimensions to 1100x500
+    * Tweaked land generation
+    % Added moment.js for date and time calculations and display
+v20180712a:
+    + Added land, which weakens storms
+    * Made tracks thicker
+    * Actually added the CSS and version number to make this consistent with my other experiments
+    * Changed rendering so storm symbols always render above tracks
+    * Slight tweak to storm strength calculation besides land interaction
+v20180709a:
+    + Initially created a simple hurricane simulator without much regard to realism, nor any land
+    % Using p5.js for the first time for any of my experiments
