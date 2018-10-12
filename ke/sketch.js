@@ -587,7 +587,7 @@ class ActiveSystem extends StormData{
         this.pressure += random(constrain(970-this.pressure,0,40))*nontropicalness;
         if(this.pressure<800) this.pressure = lerp(this.pressure,830,0.1);
         this.windSpeed = map(this.pressure,1030,900,1,160)*map(this.coreTemp,30,5,1,0.6);
-        this.type = this.coreTemp<20 ? EXTROP : (this.organization<45 && this.windSpeed<50) ? this.coreTemp<25 ? EXTROP : TROPWAVE : this.coreTemp<25 ? /*SUBTROP*/ EXTROP : TROP; // Subtropical storms temporarily removed
+        this.type = this.coreTemp<20 ? EXTROP : (this.organization<45 && this.windSpeed<50) ? this.coreTemp<25 ? EXTROP : TROPWAVE : this.coreTemp<25 ? SUBTROP : TROP; // Subtropical storms temporarily removed
         if(this.pressure>1030 || (this.pos.x > width+DIAMETER || this.pos.x < 0-DIAMETER || this.pos.y > height+DIAMETER || this.pos.y < 0-DIAMETER)){
             this.storm.deathTime = tick;
             if(this.storm.dissipationTime===undefined) this.storm.dissipationTime = tick;
