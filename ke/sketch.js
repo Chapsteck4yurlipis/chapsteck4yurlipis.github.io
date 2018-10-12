@@ -6,7 +6,7 @@ const ADVISORY_TICKS = 6;    // Number of ticks per advisory
 const START_TIME = moment.utc().startOf('year').valueOf();      // Unix timestamp for beginning of current year
 const YEAR_LENGTH = 365.2465*24;        // The length of a year in ticks; used for seasonal activity
 const TIME_FORMAT = "HH[z] MMM DD Y";
-const DEPRESSION_LETTER = "Þ";
+const DEPRESSION_LETTER = "X";
 const WINDSPEED_ROUNDING = 5;
 const LAND_BIAS_FACTORS = [
     5/8,        // Where the "center" should be for land/ocean bias (0-1 scale from west to east)
